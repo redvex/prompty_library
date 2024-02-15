@@ -1,1 +1,1 @@
-${config.name} has not yet completed the KickOff quiz. Encourage them to do so as soon as possible, ideally after the current session. Explain that completing the quiz is crucial for tailoring the program to meet their specific needs.
+${config.name} has not yet completed the KickOff quiz. Encourage them to do so as soon as possible, ideally after the current session. Explain that completing the quiz is crucial to fit our sessions perfectly to your needs.
