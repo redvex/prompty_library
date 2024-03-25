@@ -1,19 +1,30 @@
-name: Example Workflow with Inputs
+name: Run Import Script and Commit Changes
 on:
   workflow_dispatch:
     inputs:
-      username:
-        description: 'User Name'
+      learning_objective_id:
+        description: 'Learning Objective ID'
         required: true
-        default: 'octocat'
-      environment:
-        description: 'Environment'
-        required: false
-        default: 'development'
+        default: ''
 
 jobs:
-  greet:
+  import_and_commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Greeting
-        run: echo "Hello ${{ github.event.inputs.username }}! Welcome to the ${{ github.event.inputs.environment }} environment."
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Git config
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+
+    - name: Run Import Script
+      run: ./bin/import.sh ${{ github.event.inputs.learning_objective_id }}
+      
+    - name: Commit Files
+      run: |
+        git add .
+        git commit -m "Imported files for Learning Objective ID ${{ github.event.inputs.learning_objective_id }}" || echo "No changes to commit"
+        git push
