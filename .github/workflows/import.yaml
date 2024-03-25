@@ -1,0 +1,19 @@
+name: Example Workflow with Inputs
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'User Name'
+        required: true
+        default: 'octocat'
+      environment:
+        description: 'Environment'
+        required: false
+        default: 'development'
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting
+        run: echo "Hello ${{ github.event.inputs.username }}! Welcome to the ${{ github.event.inputs.environment }} environment."
