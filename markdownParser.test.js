@@ -141,6 +141,7 @@ process.env.MARKDOWN_FILES_PATH.split(" ").forEach(filePath => {
             // Define the list of expected tags
             const expectedTags = [
               '- Say:',
+              '- Adapt:',
               '- Question:',
               '- Expected Correct Answer and Reasoning:',
               '- Correct Answer:',
