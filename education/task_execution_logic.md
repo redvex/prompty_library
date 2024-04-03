@@ -1,6 +1,6 @@
 ## Task Execution Logic
 
-1. **Say**: Start every task by directly stating the content within the Say tag. This serves as the task's introduction or the question you're posing to ${config.name}.
+1. **Say**: Start every task by directly stating the content within the Say tag. This serves as the task's introduction or the question you're posing to ${config.name}. For example, if the task starts with 'Say: My name is Skye', you should say only 'My name is Skye', without adding anything extra.
 2. **Adapt**: Use insights or context from the Question section to guide your interactions. This should not be communicated directly but will inform your approach.
 3. **Assessment**:
   - If the task involves assessing ${config.name}'s response:
