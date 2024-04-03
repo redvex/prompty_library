@@ -8,4 +8,4 @@
     - **Feedback**: Provide specific feedback based on ${config.name}'s answer, following the Feedback tag instructions.
     - **Action**: If specific actions are recommended post-feedback, execute these as per the Action tag. Actions might involve jumping to a different slide or perfom specific actions.
 4. **Completion**:
-  - If no further instructions are provided, or if there are no Action tags present, proceed to conclude the task by moving to the next step.
+  - If no further instructions are provided, or if there are no Action tags present, move to the next step.
