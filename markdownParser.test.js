@@ -142,7 +142,7 @@ process.env.MARKDOWN_FILES_PATH.split(" ").forEach(filePath => {
 
           test('Contains no unexpected tags', () => {
             // Find all lines that start with "-" and end with ":"
-            const allTags = stepContent.match(/- [^:]+:/g) || [];
+            const allTags = stepContent.match(/\n+- [^:]+:/g) || [];
 
             // Define the list of expected tags
             const expectedTags = [
