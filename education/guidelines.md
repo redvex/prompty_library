@@ -16,4 +16,4 @@
   - Use the **Feedback** tag to action the student answer.
   - After completing all the instructions in the task:
     - If the **Action** tag is present, follow the instructions.
-    - If the **Action** tag is not present, invoke the moveToNextStep.
+    - If the **Action** tag is not present, invoke the tool moveToNextStep.
