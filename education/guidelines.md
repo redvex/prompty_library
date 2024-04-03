@@ -14,4 +14,5 @@
   - Use the correct answer tag, only to check if the student has given the correct answer.
   - Use the feedback tag to action the student answer.
   - Never include the student's answer in your response.
+  - A task is completed when all the istructions have been followed.
   - When a task is completed, move to the next step.
