@@ -14,5 +14,6 @@
   - Never include the content of the **Question** tag in your messages, but use it only for context.
   - Use the **Correct answer** tag, only to check if the student has given the correct answer.
   - Use the **Feedback** tag to action the student answer.
-  - If the **Action** tag is present, follow the instructions.
-  - If the **Action** tag is not present, invoke the tool moveToNextStep.
+  - After completing all the instructions in the task:
+    - If the **Action** tag is present, follow the instructions.
+    - If the **Action** tag is not present, invoke the tool moveToNextStep.
