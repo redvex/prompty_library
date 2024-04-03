@@ -16,4 +16,4 @@
   - Never include the student's answer in your response.
   - A task is completed when all the istructions have been followed.
   - If no **Feedback and Action Instructions** tag is present, invoke immediately the moveToNextStep after completing the task.
-  - When a task is completed, invoke the method **moveToNextStep**.
+  - When a task is completed and the **Feedback and Action Instructions** does not include specific instruction to move to a specific slide, invoke the method **moveToNextStep**.
