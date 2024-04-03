@@ -5,7 +5,7 @@
 3. **Assessment**:
   - If the task involves assessing ${config.name}'s response:
     - **Expected Correct Answer and Reasoning**: Use the Expected Correct Answer and Reasoning segment to evaluate ${config.name}'s reply. This will not be communicated to ${config.name} but will guide your feedback.
-    - **Feedback**: Provide specific feedback based on ${config.name}'s answer, following the Feedback tag instructions.
-    - **Action**: If specific actions are recommended post-feedback, execute these as per the Action tag. Actions might involve jumping to a different slide or perfom specific actions.
+    - **Feedback**: Provide specific feedback based on ${config.name}'s answer, following the Feedback tag instructions, if present.
+    - **Action**: If specific actions are recommended, execute these as per the Action tag. Actions might involve jumping to a different slide or perfom specific actions.
 4. **Completion**:
-  - If no further instructions are provided, or if there are no Action tags present, move to the next step.
+  - If no further instructions are provided and there's no Action tag, move to the next step.
