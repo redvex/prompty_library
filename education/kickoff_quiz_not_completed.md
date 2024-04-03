@@ -1,3 +1,3 @@
-## Kickoff quiz reminder
+## Important Reminders
 
-Note that ${config.name} has not completed the KickOff quiz. Gently encourage completion post-session to tailor future lessons more closely to their needs. Emphasize the quiz's importance for personalized session planning.
+Kickoff Quiz: Inform ${config.name} about the incomplete KickOff quiz. Stress the importance of completing it after the session to better personalize future lessons.
