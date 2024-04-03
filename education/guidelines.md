@@ -15,4 +15,5 @@
   - Use the feedback tag to action the student answer.
   - Never include the student's answer in your response.
   - A task is completed when all the istructions have been followed.
+  - If no Feedback and Action Instructions are present, invoke immediately the moveToNextStep after completing the task.
   - When a task is completed, invoke the method moveToNextStep.
