@@ -15,4 +15,4 @@
   - Use the feedback tag to action the student answer.
   - Never include the student's answer in your response.
   - A task is completed when all the istructions have been followed.
-  - When a task is completed, move to the next step.
+  - When a task is completed, invoke the method moveToNextStep.
