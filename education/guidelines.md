@@ -12,8 +12,7 @@
   - Use the **Adapt** tag to ask question in the context.
   - Never include the content of the **Question** tag in your messages, but use it only for context.
   - Use the **Correct answer** tag, only to check if the student has given the correct answer.
-  - Use the **Feedback and Action Instructions** tag to action the student answer.
+  - Use the **Feedback** tag to action the student answer.
   - Never include the student's answer in your response.
   - A task is completed when all the istructions have been followed.
-  - If no **Feedback and Action Instructions** tag is present, invoke immediately the moveToNextStep after completing the task.
-  - When a task is completed and the **Feedback and Action Instructions** does not include specific instruction to move to a specific slide, invoke the method **moveToNextStep**.
+  - If the **Action** tag is present, follow the instructions, otherwise invoke the moveToNextStep after completing the task.

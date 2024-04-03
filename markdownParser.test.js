@@ -128,9 +128,15 @@ process.env.MARKDOWN_FILES_PATH.split(" ").forEach(filePath => {
             }
           });
 
-          test(`Has an optional "Feedback and Action Instructions:":`, () => {
+          test(`Has an optional "Feedback: tag":`, () => {
             // Include optionalluy a "Question:"
-            const questionCount = (stepContent.match(/- Feedback and Action Instructions::/g) || []).length;
+            const questionCount = (stepContent.match(/- Feedback:/g) || []).length;
+            expect(questionCount).toBeLessThanOrEqual(1);
+          });
+
+          test(`Has an optional "Action: tag":`, () => {
+            // Include optionalluy a "Question:"
+            const questionCount = (stepContent.match(/- Action:/g) || []).length;
             expect(questionCount).toBeLessThanOrEqual(1);
           });
 
@@ -147,7 +153,8 @@ process.env.MARKDOWN_FILES_PATH.split(" ").forEach(filePath => {
               '- Correct Answer:',
               '- Correct Reasoning:',
               '- Possible Misconception:',
-              '- Feedback and Action Instructions:'
+              '- Feedback:',
+              '- Action:'
             ];
             // Filter out the expected tags from all found tags
             const unexpectedTags = allTags.filter(tag => !expectedTags.includes(tag.trim()));
