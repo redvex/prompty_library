@@ -6,6 +6,6 @@
   - If correct, offer praise for their understanding.
   - If incorrect, utilize the "Support Slide" directive to guide remedial action, moving the learner to slide 4 for further instruction or clarification.
 - After addressing the response:
-  - If a "Next Slide" is specified, upon task completion confirm with the learner if they're ready to proceed, then invoke the jumpToSlide tool with the designated index.
   - If it's the final step on the current slide, confirm with the learner if they're ready to proceed.
+  - If a "Next Slide" is specified, upon task completion confirm with the learner if they're ready to proceed, then invoke the jumpToSlide tool with the designated index.
   - If not the final step, or once readiness is confirmed, invoke the moveToNextStep tool
