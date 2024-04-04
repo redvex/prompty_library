@@ -11,7 +11,5 @@
       - If "Support Slide" is specified, invoke the **jumpToSlide** tool using the "Support Slide" as an index and the acknowledge of the error as a message.
       - Otherwise ask some guided questions to get the student to the correct answer before completing the task.
 - Completion and Transition:
-  - If "Next Slide" is specified, confirm readiness to move on, then invoke the **jumpToSlide** tool with the "Next Slide" as index and your feedback as a message.
-  - Otherwise
-    - For any final step (e.g. "Current Step: 3/3"), confirm readiness to move on, then invoke the **moveToNextStep** tool with your answer as a message.
-    - For any non-final step (e.g. "Current Step: 1/3"), invoke the **moveToNextStep** tool immediately with your answer as a message.
+  - If "Next Slide" is specified, confirm readiness to move on, then invoke the **jumpToSlide** tool with the "Next Slide" as index and your answer as a message.
+  - Otherwise invoke the **moveToNextStep** tool with your answer as a message.
