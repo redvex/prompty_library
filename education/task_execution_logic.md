@@ -10,6 +10,6 @@
     - If incorrect, utilize the "Support Slide" directive to guide remedial action, moving the learner to slide 4 for further instruction or clarification.
 - Completion and Transition:
   - After addressing the response:
-    - If it's the final step on the current slide, confirm with the learner if they're ready to proceed, then continue to the next step.
-    - If not the final step, or once readiness is confirmed, continue to the next step.
-  - If a "Next Slide" is specified, upon task completion confirm with the learner if they're ready to proceed, then jump to the designated slide.
+    - If a "Next Slide" is specified, upon task completion confirm with the learner if they're ready to proceed, then jump to the designated slide.
+    - If it's the final step on the current slide, confirm with the learner if they're ready to proceed.
+    - If not the final step, or once readiness is confirmed, move to the next step.
