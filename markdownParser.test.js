@@ -40,7 +40,7 @@ const steps = (markdownContent) => {
 // Load the Markdown content from a file
 process.env.MARKDOWN_FILES_PATH.split(" ").forEach(filePath => {
   if (!filePath) {
-    throw new Error('MARKDOWN_FILE_PATH environment variable is not set.');
+    throw new Error('MARKDOWN_FILES_PATH environment variable is not set.');
   }
   // Jest test
   describe(`Markdown parsing for ${filePath}`, () => {
@@ -89,77 +89,57 @@ process.env.MARKDOWN_FILES_PATH.split(" ").forEach(filePath => {
       const allSteps = steps(markdownContent);
       allSteps.forEach((stepContent, index) => {
         describe(`Step ${index + 1}`, () => {
-          test(`Starts with something to "Say":`, () => {
-            // Check that the step starts with "Say:"
-            expect(stepContent.startsWith('- Say:')).toBe(true);
-
-            //  Starts with "Say:" and contains only one "Say"
-            const sayCount = (stepContent.match(/- Say:/g) || []).length;
-            expect(sayCount).toBe(1);
+          test(`Starts with something to "Say:" tag`, () => {
+            expect(stepContent.startsWith('Say:')).toBe(true);
           });
 
-          test(`Has an optional "Question":`, () => {
-            // Include optionalluy a "Question:"
-            const questionCount = (stepContent.match(/- Question:/g) || []).length;
-            expect(questionCount).toBeLessThanOrEqual(1);
-          });
-
-          test(`Has an optional "Expected Correct Answer and Reasoning":`, () => {
-            // Include optionalluy a "Question:"
-            const questionCount = (stepContent.match(/- Expected Correct Answer and Reasoning:/g) || []).length;
-            expect(questionCount).toBeLessThanOrEqual(1);
-          });
-
-          test('If present, "Expected Correct Answer and Reasoning" is in the right format', () => {
-            const lines = stepContent.split('\n');
-
-            // Iterate through the lines to find "- Expected Correct Answer and Reasoning:"
-            for (let i = 0; i < lines.length - 1; i++) { // Adjusted to -1 because "- Correct Reasoning:" is optional
-              if (lines[i].trim() === '- Expected Correct Answer and Reasoning:') {
-                // Ensure the next line is "- Correct Answer:"
-                expect(lines[i + 1].trim().startsWith('- Correct Answer:')).toBe(true);
-
-                // If "- Correct Reasoning:" is present, it must follow "- Correct Answer:"
-                if (i + 2 < lines.length && lines[i + 2].trim().startsWith('- Correct Reasoning:')) {
-                  expect(lines[i + 2].trim().startsWith('- Correct Reasoning:')).toBe(true);
-                }
-                break; // Exit the loop once the checks are complete
-              }
+          test(`Has an optional "Visual Aid:" tag`, () => {
+            if (stepContent.includes('(Visual Aid:')) {
+              const visualAidFormat = /\(Visual Aid: .+\)/;
+              expect(visualAidFormat.test(stepContent)).toBe(true);
+            } else {
+              expect(true).toBe(true); // Pass if no Visual Aid tag is present
             }
           });
 
-          test(`Has an optional "Feedback: tag":`, () => {
-            // Include optionalluy a "Question:"
-            const questionCount = (stepContent.match(/- Feedback:/g) || []).length;
-            expect(questionCount).toBeLessThanOrEqual(1);
+          test(`Has an optional "Correct Answer:" tag`, () => {
+            if (stepContent.includes('(Correct Answer:')) {
+              const correctAnswerFormat = /\(Correct Answer: .+\)/;
+              expect(correctAnswerFormat.test(stepContent)).toBe(true);
+            } else {
+              expect(true).toBe(true); // Pass if no Correct Answer tag is present
+            }
           });
 
-          test(`Has an optional "Action: tag":`, () => {
-            // Include optionalluy a "Question:"
-            const questionCount = (stepContent.match(/- Action:/g) || []).length;
-            expect(questionCount).toBeLessThanOrEqual(1);
+          test(`Has an optional "Support Slide: tag":`, () => {
+            if (stepContent.includes('(Support Slide:')) {
+              const supportSlideFormat = /\(Support Slide: \d+\)/;
+              expect(supportSlideFormat.test(stepContent)).toBe(true);
+            } else {
+              expect(true).toBe(true); // Pass if no Support Slide tag is present
+            }
+          });
+
+          test(`Has an optional "Next Slide: tag":`, () => {
+            if (stepContent.includes('(Next Slide:')) {
+              const nextSlideFormat = /\(Next Slide: \d+\)/;
+              expect(nextSlideFormat.test(stepContent)).toBe(true);
+            } else {
+              expect(true).toBe(true); // Pass if no Next Slide tag is present
+            }
           });
 
           test('Contains no unexpected tags', () => {
-            // Find all lines that start with "-" and end with ":"
-            const allTags = stepContent.match(/\n+- [^:]+:/g) || [];
+            // Assume tags are enclosed in parentheses and follow the pattern: "(TagName: content)"
+            // Split content by parentheses to find potential tags
+            const potentialTags = stepContent.match(/\(([^:]+:)/g) || [];
 
-            // Define the list of expected tags
-            const expectedTags = [
-              '- Say:',
-              '- Adapt:',
-              '- Question:',
-              '- Expected Correct Answer and Reasoning:',
-              '- Correct Answer:',
-              '- Correct Reasoning:',
-              '- Possible Misconception:',
-              '- Feedback:',
-              '- Action:'
-            ];
-            // Filter out the expected tags from all found tags
-            const unexpectedTags = allTags.filter(tag => !expectedTags.includes(tag.trim()));
+            const cleanedTags = potentialTags.map(tag => tag.slice(1, -1) + ':');
 
-            // Assert that no unexpected tags remain
+            const expectedTags = ['Visual Aid:', 'Correct Answer:', 'Support Slide:', 'Next Slide:'];
+            
+            const unexpectedTags = cleanedTags.filter(tag => !expectedTags.includes(tag.trim()));
+
             expect(unexpectedTags.join(",")).toBe("");
           });
         });
