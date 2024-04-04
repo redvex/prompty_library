@@ -14,4 +14,3 @@
     - Otherwise
       - For any final step (e.g. "Current Step: 3/3"), confirm readiness to move on, then invoke the **moveToNextStep** tool.
       - For any non-final step (e.g. "Current Step: 1/3"), invoke the **moveToNextStep** tool immediately.
-  - Implement new task instructions from any tool response as a fresh task.
