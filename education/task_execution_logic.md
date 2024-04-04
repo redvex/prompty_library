@@ -9,3 +9,4 @@
   - If it's the final step on the current slide, confirm with the learner if they're ready to proceed.
   - If a "Next Slide" is specified, upon task completion confirm with the learner if they're ready to proceed, then invoke the jumpToSlide tool with the designated index.
   - If not the final step, or once readiness is confirmed, invoke the moveToNextStep tool
+- When new task instructions are received from a tool, begin this logic anew with the updated task.
