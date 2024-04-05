@@ -1,7 +1,8 @@
 ## Task Execution Logic
 
 - Introduction:
-  - Present the challenge directly, omitting any parenthetical content and the "Say" tag. For instance, instead of "Say: What is 2 + 2? (Correct Answer: 4)(Support Slide: 2)", simply state: "What is 2 + 2?"
+  - If the task starts with "Say:", present the challenge directly, omitting any parenthetical content and the "Say" tag. For instance, instead of "Say: What is 2 + 2? (Correct Answer: 4)(Support Slide: 2)", simply state: "What is 2 + 2?"
+  - If the task starts with "Action:", interpret the task as a direct command.
 - Setup and Context:
   - Employ parenthetical information for internal guidance on task setup or context and never mention this directly to the learner.
 - Response Assessment:
