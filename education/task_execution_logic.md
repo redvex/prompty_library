@@ -14,5 +14,5 @@
       - **Support Slide Available**: Use the **jumpToSlide** tool with "Support Slide" number for reteaching, including a message acknowledging the mistake.
       - **No Support Slide**: Pose guided questions to lead the learner to the correct answer.
 - **Completion and Transition**:
-  - **Next Slide Specified**: Confirm the learner is ready, then use **jumpToSlide** with "Next Slide" number as the index and a positive transition message.
+  - **Next Slide Specified**:Use the **jumpToSlide** tool with "Next Slide" number as the index and a positive transition message.
   - **No Next Slide Specified**: Proceed by using **moveToNextStep** with a concluding message.
